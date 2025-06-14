@@ -21,6 +21,7 @@ A stylish and functional content-based Movie Recommender System built with **Str
 ## 🚀 Demo
 
 ![Demo GIF](https://github.com/pradeepjswl/movie_reccomendation_system/assets/your-image.gif)
+![image](https://github.com/user-attachments/assets/c4a6b6b5-240e-4920-a28a-a6a1b77e5233)
 
 
 ---
