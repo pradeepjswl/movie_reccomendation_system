@@ -3,9 +3,9 @@ import pandas as pd
 import pickle
 import requests
 
-# =========================
+
 # Helper Function
-# =========================
+
 def fetch_poster(movie_id):
     response = requests.get(
         f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=60baad01bd7eaac7cf470aa6c82a70d9&language=en-US"
@@ -26,21 +26,19 @@ def recommend(movie):
         recommended_posters.append(fetch_poster(movie_id))
     return recommended_movies, recommended_posters
 
-# =========================
 # Load Data
-# =========================
+
 movies_dict = pickle.load(open("movie_dict.pkl", "rb"))
 movies = pd.DataFrame(movies_dict)
 similarity = pickle.load(open("similarity.pkl", "rb"))
 
-# =========================
+
 # Page Configuration
-# =========================
+
 st.set_page_config(page_title="🎬 Movie Recommender", layout="wide")
 
-# =========================
+
 # Custom CSS Styling
-# =========================
 
 st.markdown("""
     <style>
@@ -130,14 +128,14 @@ st.markdown("""
 st.markdown("<div class='title-style'>🎬 Movie Recommender System</div>", unsafe_allow_html=True)
 st.markdown("<div class='subtext'>Discover the best movies based on your taste 🍿</div>", unsafe_allow_html=True)
 
-# =========================
+
 # Select Movie
-# =========================
+
 selected_movie_name = st.selectbox("Select a movie you like:", movies["title"].values)
 
-# =========================
+
 # Recommend Button & Output
-# =========================
+
 if st.button("🎥 Recommend Movies"):
     names, posters = recommend(selected_movie_name)
     cols = st.columns(5)
